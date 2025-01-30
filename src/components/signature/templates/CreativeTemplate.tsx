@@ -49,7 +49,6 @@ export const CreativeTemplate = ({ data }: CreativeTemplateProps) => {
                       marginBottom: "5px"
                     }}>
                       {data.jobTitle}
-                      {data.company && ` | ${data.company}`}
                     </div>
                     <div style={{ 
                       color: "#ffffff",

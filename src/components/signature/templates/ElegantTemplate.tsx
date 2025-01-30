@@ -50,7 +50,6 @@ export const ElegantTemplate = ({ data }: ElegantTemplateProps) => {
                       marginBottom: "3px"
                     }}>
                       {data.jobTitle}
-                      {data.company && ` | ${data.company}`}
                     </div>
                     <div style={{ 
                       color: data.colors?.secondary || "#8e9196",
