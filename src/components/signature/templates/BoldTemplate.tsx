@@ -51,6 +51,7 @@ export const BoldTemplate = ({ data }: BoldTemplateProps) => {
                       marginBottom: "3px"
                     }}>
                       {data.jobTitle}
+                      {data.company && ` | ${data.company}`}
                     </div>
                     <div style={{ 
                       color: "#ffffff",
