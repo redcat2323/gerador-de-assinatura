@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
@@ -58,7 +59,7 @@ export const ColorCustomizationForm = ({ colors, onColorChange }: ColorCustomiza
       </div>
 
       <div>
-        <Label htmlFor="accentColor">Cor de Destaque</Label>
+        <Label htmlFor="accentColor">Cor de Destaque (Ícones)</Label>
         <div className="flex gap-2 items-center">
           <Input
             id="accentColor"
@@ -74,6 +75,12 @@ export const ColorCustomizationForm = ({ colors, onColorChange }: ColorCustomiza
             placeholder="#9b87f5"
             className="font-mono"
           />
+          <div className="flex items-center ml-2 space-x-1">
+            <Facebook size={16} color={colors.accent} />
+            <Twitter size={16} color={colors.accent} />
+            <Linkedin size={16} color={colors.accent} />
+            <Instagram size={16} color={colors.accent} />
+          </div>
         </div>
       </div>
     </div>
