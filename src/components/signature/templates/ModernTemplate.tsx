@@ -1,3 +1,4 @@
+
 import React from "react";
 import { SignatureData } from "../types";
 import { SocialIcons } from "./shared/SocialIcons";
@@ -15,6 +16,7 @@ export const ModernTemplate = ({ data }: ModernTemplateProps) => {
           <td style={{ 
             padding: "25px", 
             background: `linear-gradient(to right, ${data.colors?.accent}15, transparent)`,
+            backgroundColor: data.colors?.background || "#ffffff",
             borderRadius: "8px"
           }}>
             <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>

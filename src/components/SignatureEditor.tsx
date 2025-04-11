@@ -32,6 +32,7 @@ const SignatureEditor = () => {
       primary: "#1a1f2c",
       secondary: "#8e9196",
       accent: "#9b87f5",
+      background: "#ffffff",
     },
     font_family: "Inter",
     logo_url: "",
@@ -93,7 +94,7 @@ const SignatureEditor = () => {
     }));
   };
 
-  const handleColorChange = (colorType: 'primary' | 'secondary' | 'accent', value: string) => {
+  const handleColorChange = (colorType: 'primary' | 'secondary' | 'accent' | 'background', value: string) => {
     setSignatureData((prev) => ({
       ...prev,
       colors: {

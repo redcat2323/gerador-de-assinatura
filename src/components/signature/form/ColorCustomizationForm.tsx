@@ -10,8 +10,9 @@ interface ColorCustomizationFormProps {
     primary: string;
     secondary: string;
     accent: string;
+    background?: string;
   };
-  onColorChange: (colorType: 'primary' | 'secondary' | 'accent', value: string) => void;
+  onColorChange: (colorType: 'primary' | 'secondary' | 'accent' | 'background', value: string) => void;
 }
 
 export const ColorCustomizationForm = ({ colors, onColorChange }: ColorCustomizationFormProps) => {
@@ -82,6 +83,30 @@ export const ColorCustomizationForm = ({ colors, onColorChange }: ColorCustomiza
             <Linkedin size={16} color={colors.accent} />
             <Instagram size={16} color={colors.accent} />
           </div>
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="backgroundColor">Cor de Fundo</Label>
+        <div className="flex gap-2 items-center">
+          <Input
+            id="backgroundColor"
+            type="color"
+            value={colors.background || "#ffffff"}
+            onChange={(e) => onColorChange('background', e.target.value)}
+            className="w-12 h-12 p-1 cursor-pointer"
+          />
+          <Input
+            type="text"
+            value={colors.background || "#ffffff"}
+            onChange={(e) => onColorChange('background', e.target.value)}
+            placeholder="#ffffff"
+            className="font-mono"
+          />
+          <div 
+            className="w-6 h-6 rounded ml-2 border border-gray-300"
+            style={{ backgroundColor: colors.background || "#ffffff" }}
+          ></div>
         </div>
       </div>
     </div>
