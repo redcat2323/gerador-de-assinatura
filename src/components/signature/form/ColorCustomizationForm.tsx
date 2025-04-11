@@ -2,6 +2,7 @@
 import React from "react";
 import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { SignatureData } from "../types";
 
 interface ColorCustomizationFormProps {
