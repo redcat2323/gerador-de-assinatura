@@ -1,6 +1,7 @@
 
 import React from "react";
 import { SignatureData } from "../../types";
+import { ensureUrlProtocol } from "../../../../lib/utils";
 
 interface ContactInfoProps {
   data: SignatureData;
@@ -46,7 +47,7 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
           <tr>
             <td style={{ paddingBottom: "5px" }}>
               <a 
-                href={data.website}
+                href={ensureUrlProtocol(data.website)}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ 
@@ -66,7 +67,7 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
               <tr key={index}>
                 <td style={{ paddingBottom: "5px" }}>
                   <a 
-                    href={link.url}
+                    href={ensureUrlProtocol(link.url)}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 
