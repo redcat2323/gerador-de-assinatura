@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
@@ -42,42 +43,50 @@ export const CustomLinksForm = ({
         </Button>
       </div>
 
-      {links.map((link, index) => (
-        <div key={index} className="space-y-2 p-4 border rounded-md">
-          <div className="flex justify-between items-center">
-            <span className="text-sm font-medium">Link {index + 1}</span>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={() => removeLink(index)}
-            >
-              <Trash2 className="w-4 h-4 text-red-500" />
-            </Button>
-          </div>
-
-          <div className="space-y-2">
-            <div>
-              <Label htmlFor={`link-label-${index}`}>Texto do Link</Label>
-              <Input
-                id={`link-label-${index}`}
-                value={link.label}
-                onChange={(e) => updateLink(index, "label", e.target.value)}
-                placeholder="Ex: Meu Portfolio"
-              />
-            </div>
-            <div>
-              <Label htmlFor={`link-url-${index}`}>URL</Label>
-              <Input
-                id={`link-url-${index}`}
-                value={link.url}
-                onChange={(e) => updateLink(index, "url", e.target.value)}
-                placeholder="https://..."
-              />
-            </div>
-          </div>
+      {links.length === 0 ? (
+        <div className="flex justify-center p-6 border border-dashed rounded-md">
+          <p className="text-muted-foreground text-sm">
+            Clique em "Adicionar Link" para incluir links personalizados na sua assinatura
+          </p>
         </div>
-      ))}
+      ) : (
+        links.map((link, index) => (
+          <div key={index} className="space-y-2 p-4 border rounded-md">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium">Link {index + 1}</span>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => removeLink(index)}
+              >
+                <Trash2 className="w-4 h-4 text-red-500" />
+              </Button>
+            </div>
+
+            <div className="space-y-2">
+              <div>
+                <Label htmlFor={`link-label-${index}`}>Texto do Link</Label>
+                <Input
+                  id={`link-label-${index}`}
+                  value={link.label}
+                  onChange={(e) => updateLink(index, "label", e.target.value)}
+                  placeholder="Ex: Meu Portfolio"
+                />
+              </div>
+              <div>
+                <Label htmlFor={`link-url-${index}`}>URL</Label>
+                <Input
+                  id={`link-url-${index}`}
+                  value={link.url}
+                  onChange={(e) => updateLink(index, "url", e.target.value)}
+                  placeholder="https://..."
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
