@@ -1,3 +1,4 @@
+
 import React from "react";
 import { SignatureData } from "../../types";
 
@@ -15,7 +16,7 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
               <a 
                 href={`mailto:${data.email}`}
                 style={{ 
-                  color: data.colors.accent || "#9b87f5",
+                  color: data.colors?.accent || "#9b87f5",
                   textDecoration: "none",
                   fontSize: "14px"
                 }}
@@ -31,7 +32,7 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
               <a 
                 href={`tel:${data.phone}`}
                 style={{ 
-                  color: data.colors.secondary || "#8e9196",
+                  color: data.colors?.secondary || "#8e9196",
                   textDecoration: "none",
                   fontSize: "14px"
                 }}
@@ -49,7 +50,7 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ 
-                  color: data.colors.secondary || "#8e9196",
+                  color: data.colors?.secondary || "#8e9196",
                   textDecoration: "none",
                   fontSize: "14px"
                 }}
@@ -59,6 +60,28 @@ export const ContactInfo = ({ data }: ContactInfoProps) => {
             </td>
           </tr>
         )}
+        {data.customLinks && data.customLinks.length > 0 && 
+          data.customLinks.map((link, index) => (
+            link.label && link.url && (
+              <tr key={index}>
+                <td style={{ paddingBottom: "5px" }}>
+                  <a 
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: data.colors?.secondary || "#8e9196",
+                      textDecoration: "none",
+                      fontSize: "14px"
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </td>
+              </tr>
+            )
+          ))
+        }
       </tbody>
     </table>
   );
